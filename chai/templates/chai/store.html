@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block  content%}
+<h1 class= " text-2xl text-red-500">Test Content for forms </h1>
+<form method ="POST" class='text-orange-400'>
+     {% csrf_token %}
+    {{form.as_p}}
+
+<button type= 'submit'>
+  Search Store
+</button>
+</form>
+{% if stores %}
+  <h2>Stores available</h2>
+  <ul>
+    {% for ram in stores %}
+        <li> Store name is  {{ram.name}} ,Location is  {{ram.location}}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% endblock  %}
